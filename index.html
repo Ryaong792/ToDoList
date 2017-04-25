@@ -1,25 +1,113 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>ToDo List</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags unless you know what you are doing -->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.blue-indigo.min.css" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
       <!-- Do not add `script` tags unless you know what you are doing -->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
-      <h1>Example</h1>
 
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-      eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-      minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-      ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.</p>
+      <!-- Always shows a header, even in smaller screens. -->
+      <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+        <header class="mdl-layout__header nav">
+          <div class="mdl-layout__header-row">
+            <!-- Title -->
+            <span class="mdl-layout-title">Title</span>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+              <a class="mdl-navigation__link" href="">Link</a>
+              <a class="mdl-navigation__link" href="">Link</a>
+              <a class="mdl-navigation__link" href="">Link</a>
+              <a class="mdl-navigation__link" href="">Link</a>
+            </nav>
+          </div>
+        </header>
+        <div class="mdl-layout__drawer">
+          <span class="mdl-layout-title">Title</span>
+          <nav class="mdl-navigation">
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+            <a class="mdl-navigation__link" href="">Link</a>
+          </nav>
+        </div>
+
+        <!-- login testing -->
+  <div class="wrapper">
+	<div class="container">
+	<h1>Welcome</h1>
+
+		<form class="form login-form">
+			<input class="animated slideInRight" type="text" placeholder="Username">
+			<input class="animated slideInLeft"type="password" placeholder="Password">
+      <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent animated fadeInUp"
+      type="submit" id="login-button">
+  login
+</button>
+<p class="register">Not registered? <a rel="nofollow" rel="noreferrer">Create an account</a></p>
+
+
+<!-- <p class="message">Not registered? <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored animated fadeInUp"
+  id="testing">
+  <i class="material-icons">add</i>
+</button> </p> -->
+</form>
+<form class="form register-form">
+  <input class="animated slideInRight" type="text" placeholder="Username">
+  <input class="animated slideInLeft"type="password" placeholder="Password">
+  <input class="animated slideInRight"type="password" placeholder="Password">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent animated fadeInUp"
+  type="submit" id="register-button">
+Register
+</button>
+      <p class="sign-in">Already registered? <a rel="nofollow" rel="noreferrer">Sign In</a></p>
+		</form>
+    <!-- Colored mini FAB button -->
+	</div>
+
+	<ul class="animated infinite pulse bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	</ul>
+</div>
+
+<!-- end of login-->
+
+        <main class="mdl-layout__content">
+          <div class="page-content">
+
+
+
+
+
+
+
+
+
+
+          </div>
+        </main>
+      </div>
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
     </body>
 </html>
