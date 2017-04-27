@@ -47,32 +47,31 @@
   </div>
 <!-- ********** end of NAV / Header ************* -->
 
-<!-- **** ALERT MODALS **** -->
-<!-- *** sign-in failed *** -->
-        <div class="modal mdl-cell--2-col modal1">
-          <div class="modal-content">
-            <h4>ACCESS DENIED</h4>
-            <p>User name or Password is incorrect. <br/> Please try again to Login</p>
-          </div>
-        </div>
-<!-- *** sign-up failed *** -->
-        <div class="modal mdl-cell--2-col modal2">
-          <div class="modal-content">
-            <h4>REGISTRATION FAILED</h4>
-            <p>Username may already be in used <br/> or passwords did not match. <br/> Please try again to Login</p>
-          </div>
-        </div>
-<!-- *** sign-up success *** -->
-        <div class="modal mdl-cell--2-col modal3">
-          <div class="modal-content">
-          <h4>REGISTRATION COMPLETE</h4>
-          <p>Account has been created successfully. <br/> Please login! </p>
-          </div>
-        </div>
-<!-- ****************** END OF MODALS ***************** -->
-
 <!-- **** Warpper and Login/registration forms **** -->
 <div class="wrapper">
+  <!-- **** ALERT MODALS **** -->
+  <!-- *** sign-in failed *** -->
+  <dialog id="dialog" class="mdl-dialog dialog1"></p>
+    <h3 class="mdl-dialog__title">ACCESS DENIED</h3></p>
+    <div class="mdl-dialog__content error_content">
+      <p>User name or Password is incorrect. <br/> Please try again to Login!</p>
+    </div>
+  </dialog>
+<!-- *** sign-up failed *** -->
+  <dialog id="dialog" class="mdl-dialog dialog2"></p>
+    <h3 class="mdl-dialog__title">REGISTRATION FAILED</h3></p>
+    <div class="mdl-dialog__content error_content">
+      <p>Username may already be in used or passwords did not match. <br/> Please try again to Login!</p>
+    </div>
+  </dialog>
+  <!-- *** sign-up success *** -->
+  <dialog id="dialog" class="mdl-dialog dialog3"></p>
+    <h3 class="mdl-dialog__title">ACCOUNT CREATED</h3></p>
+    <div class="mdl-dialog__content success_content">
+      <p>Account has been created. <br/> Please login!</p>
+    </div>
+  </dialog>
+<!-- ****************** END OF MODALS ***************** -->
   <div class="container">
 	  <h1>Welcome</h1>
     <!-- ****  Sign-in  **** -->
@@ -116,22 +115,31 @@
   <div class="mdl-grid">
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp testing animated infinite rubberBand">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Task</th>
+          <th>Delete</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">Do something 1 Do something 1
+          Do something 1 Do something 1</td>
+          <td><i class="material-icons">delete</i></td>
+        </tr>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">Do something 2Do something 1 Do something 1
+          </td>
+          <td><i class="material-icons">delete</i></td>
+        </tr>
+        <tr>
+          <td class="mdl-data-table__cell--non-numeric">Do something 3Do something 1 Do something 1
+          Do something 1 Do something 1</td>
+          <td><i class="material-icons">delete</i></td>
+        </tr>
+      </tbody>
+    </table> -->
 
   </div>
 <!-- **** Colored FAB Logout button **** -->

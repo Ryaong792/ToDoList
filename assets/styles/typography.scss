@@ -30,29 +30,42 @@ body {
   top: 80%;
 }
 
-.modal1 {
-  font-weight: 900;
+.dialog1 {
   color: $red-color;
-  text-align: center;
-  position: absolute;
-  left: 42%;
-  top: 35%;
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  margin: 0 auto;
 }
-
-.modal2 {
+.dialog2 {
   color: $red-color;
-  font-weight: 900;
-  left: 42%;
-  position: absolute;
-  text-align: center;
-  top: 35%;
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  margin: 0 auto;
 }
-
-.modal3 {
+.dialog3 {
   color: $green-color;
-  font-weight: 900;
-  left: 42%;
-  position: absolute;
-  text-align: center;
-  top: 35%;
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  margin: 0 auto;
 }
+.mdl-dialog__title {
+    padding: 24px 24px 0;
+    margin: 0;
+    max-height: 55px;
+    font-size: 1.8rem;
+    text-align: center;
+  }
+.success_content {
+  padding: 20px 24px 24px 24px;
+  max-height: 100px;
+  background: $green-color;
+  color: white;
+}
+.error_content {
+    padding: 20px 24px 24px 24px;
+    max-height: 100px;
+    background: $red-color;
+    color: white; }

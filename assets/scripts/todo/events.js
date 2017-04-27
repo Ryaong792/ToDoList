@@ -28,6 +28,23 @@ $('.logout').click(function (event) {
   event.preventDefault()
 })
 // ************** end of login *************************
+// ************** Task add / remove ********************
+
+// working remove from data-table
+// $('.material-icons').on('click', function (event) {
+//   $(this).parents('tr').remove()
+// })
+
+
+// $('.material-icons').on('click', function (e) {
+//   $('.mdl-data-table__cell--non-numeric').remove()
+// })
+
+// $('button').click(function() {
+//   var new_task = $('#input').val()
+//   $('#list').append('<li><label for="checkbox_id">'+new_task+'</label></li>')
+//   return false   // This is new line of code
+// })
 
 // **** start of adding task and removing task ****
 

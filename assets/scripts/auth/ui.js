@@ -4,14 +4,20 @@ const store = require('../store')
 // const todo = require('../todo/events.js')
 
 const signUpSuccess = (data) => {
-  $('.modal3').modal()
+  $('.dialog3').show()
+  setTimeout(function () {
+    $('.dialog3').fadeOut()
+  }, 4000)
   $('form').fadeOut(500)
   $('.login-form').show()
   $('#sign-up').trigger('reset')
 }
 
 const signUpFailure = () => {
-  $('.modal2').modal()
+  $('.dialog2').show()
+  setTimeout(function () {
+    $('.dialog2').fadeOut()
+  }, 4000)
   $('#sign-up').trigger('reset')
 }
 
@@ -27,8 +33,16 @@ const signInSuccess = (response) => {
 
 const signInFailure = () => {
   $('#sign-in').trigger('reset')
-  $('.modal1').modal()
+  // $('.modal1').modal()
+  $('.dialog1').show()
+  setTimeout(function () {
+    $('.dialog1').fadeOut()
+  }, 4000)
 }
+
+setTimeout(function () {
+  $('.success').fadeOut().empty()
+}, 5000)
 
 const signOutSuccess = () => {
   store.user = null
