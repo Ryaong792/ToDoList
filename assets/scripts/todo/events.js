@@ -52,6 +52,9 @@ const addHandlers = () => {
   $('.register-form').hide()
   $('.nav').hide()
   $('.logout').hide()
+  $('.dialog1').hide()
+  $('.dialog2').hide()
+  $('.dialog3').hide()
 }
 
 module.exports = {
