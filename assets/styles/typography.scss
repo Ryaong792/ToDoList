@@ -29,3 +29,30 @@ body {
   left: 80%;
   top: 80%;
 }
+
+.modal1 {
+  font-weight: 900;
+  color: $red-color;
+  text-align: center;
+  position: absolute;
+  left: 42%;
+  top: 35%;
+}
+
+.modal2 {
+  color: $red-color;
+  font-weight: 900;
+  left: 42%;
+  position: absolute;
+  text-align: center;
+  top: 35%;
+}
+
+.modal3 {
+  color: $green-color;
+  font-weight: 900;
+  left: 42%;
+  position: absolute;
+  text-align: center;
+  top: 35%;
+}
