@@ -23,6 +23,7 @@ const signUpFailure = () => {
 
 const signInSuccess = (response) => {
   store.user = response.user
+  console.log(response)
   $('.form-group').fadeOut(500)
   $('.nav').show()
   $('.wrapper').addClass('form-success animated rotateOut')

@@ -3,14 +3,15 @@
 const config = require('../config')
 const store = require('../store')
 
-const createList = () => {
+const createList = (data) => {
+  console.log('created list ' + data)
   return $.ajax({
     url: config.apiOrigin + '/lists',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data: ''
+    data
   })
 }
 
@@ -19,6 +20,27 @@ const getList = () => {
   return $.ajax({
     url: config.apiOrigin + '/lists',
     method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const deleteList = (id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const updateList = (id, name) => {
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + id,
+    method: 'PATCH',
+    data: {list: {name: name}},
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
@@ -63,7 +85,9 @@ const getList = () => {
 
 module.exports = {
   getList,
-  createList
+  createList,
+  deleteList,
+  updateList
   // createGame,
   // updateGame,
   // getGameOver

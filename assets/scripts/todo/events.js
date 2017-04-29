@@ -7,17 +7,35 @@ const todoapi = require('./todoapi.js')
 
 // pulls total game played by user (GET)
 const getList = function () {
+  event.preventDefault()
   todoapi.getList()
     .then(todoui.getListSuccess)
     .catch(todoui.getListFailure)
 }
 
 const createList = function () {
+  event.preventDefault()
   const data = getFormFields(this)
   todoapi.createList(data)
   .then(todoui.createListSuccess)
   .catch(todoui.createListFailure)
 }
+
+const deleteList = function () {
+  event.preventDefault()
+  todoapi.deleteList($(this).closest('li').data('id'))
+    .then(todoui.deleteListSuccess)
+    .catch(todoui.deleteListFailure)
+  $(this).closest('li').hide()
+}
+
+const updateList = function () {
+  event.preventDefault()
+  todoapi.updateList($(this).closest('li').data('id'), prompt('Enter the new name', $(this).closest('li').data('name')))
+    .then(todoui.updateListSuccess)
+    .catch(todoui.updateListFailure)
+}
+
 // server communications ****************** see game API
 // pulls new game from server (POST)
 // const createGame = function () {
@@ -65,9 +83,9 @@ $('.logout').click(function (event) {
 // ************** Task add / remove ********************
 
 // working remove from data-table
-// $('.material-icons').on('click', function (event) {
-//   $(this).parents('tr').remove()
-// })
+$('.material-icons').on('click', function (event) {
+  $(this).parents('tr').remove()
+})
 
 // $('.material-icons').on('click', function (e) {
 //   $('.mdl-data-table__cell--non-numeric').remove()
@@ -90,6 +108,7 @@ const addHandlers = () => {
   $('.dialog3').hide()
   $('.listing').on('click', getList)
   $('#create-list').on('submit', createList)
+  $('.list').on('click', '.delete', deleteList).on('click', '.update', updateList)
 }
 
 module.exports = {

@@ -1,0 +1,15 @@
+<ul>
+{{#each list}}
+
+  <li data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} list-unstyled'>
+  <h2> Name: {{this.name}}</h2>
+  <div>
+    <p>list: {{this.name}} </p>
+    <p><button class="delete" name="button">delete</button></p>
+    <p><button class="update" name="button">update</button></p>
+</div>
+<hr>
+</li>
+{{/each}}
+
+</ul>
