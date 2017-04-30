@@ -3,6 +3,46 @@
 const config = require('../config')
 const store = require('../store')
 
+// **** CREATE TASK ****
+// **** TASK CREATED IS TIED TO LIST ID ****
+const createTask = (id, name) => {
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + id + '/tasks',
+    data: {task: {name: name}},
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+// **** READ Task ****
+const getTask = (id) => {
+  console.log('get task ran')
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + id + '/tasks',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// **************** API for LIST ************************
+// **** CREATE LIST ****
 const createList = (data) => {
   console.log('created list ' + data)
   return $.ajax({
@@ -15,6 +55,7 @@ const createList = (data) => {
   })
 }
 
+// *** READ LIST ****
 const getList = () => {
   console.log('get list ran')
   return $.ajax({
@@ -26,16 +67,7 @@ const getList = () => {
   })
 }
 
-const deleteList = (id) => {
-  return $.ajax({
-    url: config.apiOrigin + '/lists/' + id,
-    method: 'DELETE',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    }
-  })
-}
-
+// *** UPDATE LIST ****
 const updateList = (id, name) => {
   return $.ajax({
     url: config.apiOrigin + '/lists/' + id,
@@ -47,47 +79,24 @@ const updateList = (id, name) => {
   })
 }
 
-// creation of game to AJAX -
-// const createGame = () => {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'POST',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data: ''
-//   })
-// }
-// // updating game t
-//
-// const updateGame = (data) => {
-//   const game = store.game
-//   return $.ajax({
-//     url: config.apiOrigin + '/games/' + game['id'],
-//     method: 'PATCH',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
-//
-// const getGameOver = (data) => {
-//   return $.ajax({
-//     url: config.apiOrigin + '/games',
-//     method: 'GET',
-//     headers: {
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
+// **** DISTORY LIST ****
+const deleteList = (id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   getList,
   createList,
   deleteList,
-  updateList
+  updateList,
+  createTask,
+  getTask
   // createGame,
   // updateGame,
   // getGameOver

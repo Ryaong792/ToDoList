@@ -6,13 +6,23 @@ const todoapi = require('./todoapi.js')
 // const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
 
 // pulls total game played by user (GET)
-const getList = function () {
+
+const createTask = function () {
   event.preventDefault()
-  todoapi.getList()
-    .then(todoui.getListSuccess)
-    .catch(todoui.getListFailure)
+  todoapi.createTask($(this).closest('li').data('id'), prompt('Enter the task name', ''))
+  .then(todoui.createTaskSuccess)
+  .catch(todoui.createTaskFailure)
 }
 
+const getTask = function () {
+  event.preventDefault()
+  todoapi.getTask()
+    .then(todoui.getTaskSuccess)
+    .catch(todoui.getTaskFailure)
+}
+
+// ********** Server communications API FOR LIST ******************
+// **** CREATE LIST ****
 const createList = function () {
   event.preventDefault()
   const data = getFormFields(this)
@@ -21,14 +31,15 @@ const createList = function () {
   .catch(todoui.createListFailure)
 }
 
-const deleteList = function () {
+// **** GET LIST ****
+const getList = function () {
   event.preventDefault()
-  todoapi.deleteList($(this).closest('li').data('id'))
-    .then(todoui.deleteListSuccess)
-    .catch(todoui.deleteListFailure)
-  $(this).closest('li').hide()
+  todoapi.getList()
+    .then(todoui.getListSuccess)
+    .catch(todoui.getListFailure)
 }
 
+// **** UPDATE LIST ****
 const updateList = function () {
   event.preventDefault()
   todoapi.updateList($(this).closest('li').data('id'), prompt('Enter the new name', $(this).closest('li').data('name')))
@@ -36,23 +47,14 @@ const updateList = function () {
     .catch(todoui.updateListFailure)
 }
 
-// server communications ****************** see game API
-// pulls new game from server (POST)
-// const createGame = function () {
-//   gameapi.createGame()
-//   .then(gameui.createGameSuccess)
-//   .catch(gameui.createGameFailure)
-// }
-// // send update of current game to server (PATCH)
-// const updateGame = function (data) {
-//   gameapi.updateGame(data)
-// }
-// // pulls total game played by user (GET)
-// const getGameOver = function (data) {
-//   gameapi.getGameOver(data)
-//   .then(gameui.getGameSuccess)
-//   .catch(gameui.getGameFailure)
-// }
+// **** DISTORY LIST ****
+const deleteList = function () {
+  event.preventDefault()
+  todoapi.deleteList($(this).closest('li').data('id'))
+    .then(todoui.deleteListSuccess)
+    .catch(todoui.deleteListFailure)
+  $(this).closest('li').hide()
+}
 
 // **** LOGIN BUTTONS / WECLOME WINDOW! ****
 // ****login****
@@ -83,20 +85,9 @@ $('.logout').click(function (event) {
 // ************** Task add / remove ********************
 
 // working remove from data-table
-$('.material-icons').on('click', function (event) {
-  $(this).parents('tr').remove()
-})
-
-// $('.material-icons').on('click', function (e) {
-//   $('.mdl-data-table__cell--non-numeric').remove()
+// $('.material-icons').on('click', function (event) {
+//   $(this).parents('tr').remove()
 // })
-
-// $('button').click(function() {
-//   var new_task = $('#input').val()
-//   $('#list').append('<li><label for="checkbox_id">'+new_task+'</label></li>')
-//   return false   // This is new line of code
-// })
-
 // **** start of adding task and removing task ****
 
 const addHandlers = () => {
@@ -107,8 +98,11 @@ const addHandlers = () => {
   $('.dialog2').hide()
   $('.dialog3').hide()
   $('.listing').on('click', getList)
+    .on('click', getTask)
   $('#create-list').on('submit', createList)
-  $('.list').on('click', '.delete', deleteList).on('click', '.update', updateList)
+  $('.list').on('click', '.delete', deleteList)
+    .on('click', '.update', updateList)
+    .on('click', '.add_task', createTask)
 }
 
 module.exports = {

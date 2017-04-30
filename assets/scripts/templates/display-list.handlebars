@@ -1,4 +1,4 @@
-<ul>
+<!-- <ul>
 {{#each list}}
 
   <li data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} list-unstyled'>
@@ -7,9 +7,43 @@
     <p>list: {{this.name}} </p>
     <p><button class="delete" name="button">delete</button></p>
     <p><button class="update" name="button">update</button></p>
+    <p><button class="add_task" name="button">task</button></p>
 </div>
 <hr>
 </li>
 {{/each}}
 
-</ul>
+</ul> -->
+
+
+<!--
+<ul>
+{{#each list}}
+
+<li data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} list-unstyled'>
+<div>
+  <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp testing">
+    <thead>
+      <tr>
+        <th class="mdl-data-table__cell--non-numeric">Task</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th><button><i class="material-icons">library_add</i></th>
+      </tr>
+    </thead>
+<tbody>
+  <tr>
+    <td class="mdl-data-table__cell--non-numeric"><p> {{this.name}} </p></td>
+    <td><i class="material-icons delete" name:"button">note_add</i></td>
+    <td><i class="material-icons update" name:"button">mode_edit</i></td>
+    <td><i class="material-icons add_task" name:"button">delete</i></td>
+  </tr>
+</tbody>
+</table>
+</div>
+<hr>
+</li>
+{{/each}}
+
+</ul> -->
