@@ -28,7 +28,16 @@ const getTask = (id) => {
   })
 }
 
-
+// **** DISTORY LIST ****
+const deleteTask = (listId, id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + listId + '/tasks/' + id,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 
 
@@ -96,7 +105,8 @@ module.exports = {
   deleteList,
   updateList,
   createTask,
-  getTask
+  getTask,
+  deleteTask
   // createGame,
   // updateGame,
   // getGameOver

@@ -121,18 +121,55 @@
 <button class="tasking">TASK </button>
 <div class="task"></div>
 
-<div class="form-list">
+<!-- <div class="form-list">
   <form class="create" id="create-list">
     <input class="animated slideInRight" type="text" name="list[name]" placeholder="Name">
     <input class="animated slideInLeft" type="boolean" name="list[completed]" placeholder="True or false">
      <input type="submit" name="submit" value="Create">
+</div> -->
+
+<div>
+<dialog id="dialog" class="mdl-dialog dialog4"></p>
+  <h3 class="mdl-dialog__title">Create New List</h3></p>
+  <div class="mdl-dialog__content Update_list form-list">
+    <form class="create" id="create-list">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="list[name]" id="create-list">
+        <label class="mdl-textfield__label" for="create_list">Name...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" name="submit">
+       Create
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--accent">
+        Cancel
+      </button>
+    </form>
+  </div>
+</dialog>
+<div>
+
+
+ <!-- ************** testing the UPDATE WITH DIALOG boxes.  Having issues finding
+ the data ID for the model to take the update outside from the prompt ******** -->
+<div>
+<dialog id="dialog" class="mdl-dialog dialog5"></p>
+  <h3 class="mdl-dialog__title">Update List Name</h3></p>
+  <div class="mdl-dialog__content update_list_name form-list">
+    <form class="create" id="create-list">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="list[name]" id="update-list">
+        <label class="mdl-textfield__label" for="create_list">Name...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" name="submit">
+       Create
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--accent">
+        Cancel
+      </button>
+    </form>
+  </div>
+</dialog>
 </div>
-
-
-
-
-
-
 
 
 

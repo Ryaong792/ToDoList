@@ -1,4 +1,4 @@
-<!-- <ul>
+<ul>
 {{#each list}}
 
   <li data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} list-unstyled'>
@@ -9,11 +9,19 @@
     <p><button class="update" name="button">update</button></p>
     <p><button class="add_task" name="button">task</button></p>
 </div>
+{{#each this.tasks}}
+<div data-id="{{this.id}}">
+    <p>task: {{this.name}} </p>
+    <p><button class="delete_task" name="button">delete</button></p>
+    <p><button class="update_task" name="button">update</button></p>
+  </div>
+      {{/each}}
+
 <hr>
 </li>
 {{/each}}
 
-</ul> -->
+</ul>
 
 
 <!--

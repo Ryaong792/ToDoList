@@ -21,6 +21,15 @@ const getTask = function () {
     .catch(todoui.getTaskFailure)
 }
 
+// **** DISTORY TASK ****
+const deleteTask = function () {
+  event.preventDefault()
+  todoapi.deleteTask($(this).closest('li').data('id'), $(this).closest('div').data('id'))
+    .then(todoui.deleteTaskSuccess)
+    .catch(todoui.deleteTaskFailure)
+  $(this).closest('div').hide()
+}
+
 // ********** Server communications API FOR LIST ******************
 // **** CREATE LIST ****
 const createList = function () {
@@ -91,6 +100,8 @@ $('.logout').click(function (event) {
 // **** start of adding task and removing task ****
 
 const addHandlers = () => {
+  $('.dialog5').show()
+  $('.dialog4').show()
   $('.register-form').hide()
   $('.nav').hide()
   $('.logout').hide()
@@ -103,6 +114,7 @@ const addHandlers = () => {
   $('.list').on('click', '.delete', deleteList)
     .on('click', '.update', updateList)
     .on('click', '.add_task', createTask)
+    .on('click', '.delete_task', deleteTask)
 }
 
 module.exports = {

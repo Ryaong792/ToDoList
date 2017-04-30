@@ -47,11 +47,11 @@ const updateTaskFailure = (data) => {
 // **** SUCCESS DELETE TASK****
 // the data id is the id from handebars
 const deleteTaskSuccess = (data) => {
-  $('.list').find('li[data-id=' + data.id + ']').remove()
+  $('.list').find('div[data-id=' + data.id + ']').remove()
 }
 // **** FAILURE READ LIST ****
 const deleteTaskFailure = (data) => {
-  $('.list').find('li[data-id=' + data.id + ']').show()
+  $('.list').find('div[data-id=' + data.id + ']').show()
 }
 
 // *****************************************************************
