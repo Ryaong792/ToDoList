@@ -14,6 +14,20 @@ const createTaskFailure = (data) => {
   alert('Failed to update')
 }
 
+const updateTaskSuccess = (data) => {
+  data = data.list
+  const item = $('.list').find('li[data-id=' + data.id + ']')
+  item.find('p').html('list: ' + data.name)
+}
+// **** FAILURE UPDATE LIST ****
+const updateTaskFailure = (data) => {
+  alert('Failed to update')
+}
+// rtrt
+// register-button
+// 44444
+// 4444
+
 // **** READ TASK SUCCESS / FAILURE  ****
 // **** SUCCESS READ TASK****
 const getTaskSuccess = (data) => {
@@ -128,5 +142,7 @@ module.exports = {
   // updateTaskSuccess,
   // updateTaskFailure,
   deleteTaskSuccess,
-  deleteTaskFailure
+  deleteTaskFailure,
+  updateTaskFailure,
+  updateTaskSuccess
 }

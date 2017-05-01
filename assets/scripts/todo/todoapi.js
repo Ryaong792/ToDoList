@@ -28,6 +28,18 @@ const getTask = (id) => {
   })
 }
 
+// *** UPDATE TASK ****
+const updateTask = (listId, id) => {
+  return $.ajax({
+    url: config.apiOrigin + '/lists/' + listId + '/tasks/' + id,
+    method: 'PATCH',
+    data: {list: {name: name}},
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 // **** DISTORY LIST ****
 const deleteTask = (listId, id) => {
   return $.ajax({
@@ -39,16 +51,13 @@ const deleteTask = (listId, id) => {
   })
 }
 
-
-
-
-
-
-
-
-
-
-
+// !!!!!!!!
+// !!!!!!
+// !!!!!
+// !!!!
+// !!!!!!!
+// !!!!!
+// !!!!!!!!
 
 // **************** API for LIST ************************
 // **** CREATE LIST ****
@@ -106,7 +115,8 @@ module.exports = {
   updateList,
   createTask,
   getTask,
-  deleteTask
+  deleteTask,
+  updateTask
   // createGame,
   // updateGame,
   // getGameOver

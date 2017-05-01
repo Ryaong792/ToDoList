@@ -21,6 +21,16 @@ const getTask = function () {
     .catch(todoui.getTaskFailure)
 }
 
+// **** UPDATE TASK ****
+const updateTask = function () {
+  event.preventDefault()
+  console.log('li after this')
+  console.log($(this).closest('li').data('id'))
+  todoapi.updateTask(($(this).data('id'), $(this).closest('li').data('id')), prompt('Enter the new name', $(this).closest('li').data('name')))
+    .then(todoui.updateTaskSuccess)
+    .catch(todoui.updateTaskFailure)
+}
+
 // **** DISTORY TASK ****
 const deleteTask = function () {
   event.preventDefault()
@@ -143,6 +153,7 @@ const addHandlers = () => {
     .on('click', '.update', updateList)
     .on('click', '.add_task', createTask)
     .on('click', '.delete_task', deleteTask)
+    .on('click', '.update_task', updateTask)
 }
 
 module.exports = {
