@@ -116,6 +116,7 @@
 
 
 <button class="listing">LIST </button>
+<button class="stuff">show stuff </button>
 <!-- <div class="list"></div> -->
 
 <!-- <div class="form-list">
@@ -150,11 +151,11 @@
  the data ID for the model to take the update outside from the prompt ******** -->
 <div>
 <dialog id="dialog" class="mdl-dialog dialog5"></p>
-  <h3 class="mdl-dialog__title">Update List Name</h3></p>
+  <h3 class="mdl-dialog__title">Update TASK Name</h3></p>
   <div class="mdl-dialog__content update_list_name form-list">
     <form class="create" id="create-list">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" name="list[name]" id="update-list">
+        <input class="mdl-textfield__input" type="text" name="task[name]" id="update-list">
         <label class="mdl-textfield__label" for="create_list">Name...</label>
       </div>
       <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" name="submit">
@@ -168,15 +169,15 @@
 </dialog>
 </div>
 
-<div>
-  <h1>TESTING ToDo TABLE</h1>
+<dialog id="dialog9" class="mdl-dialog dialog9 animated flipInX"></p>
+  <h3 class="mdl-dialog__title tdialog9">ToDo List</h3></p>
+  <div class="mdl-dialog__content todolist">
 <ul class="accordion">
   <li class="list">
   </li>
 </ul>
-</div>
-
-
+ </div>
+</dialog>
 
 
 

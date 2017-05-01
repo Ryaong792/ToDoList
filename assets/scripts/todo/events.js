@@ -24,9 +24,9 @@ const getTask = function () {
 // **** DISTORY TASK ****
 const deleteTask = function () {
   event.preventDefault()
-  console.log($(this).closest('a').data('id'))
+  console.log($(this))
   console.log($(this).closest('li').data('id'))
-  todoapi.deleteTask($(this).closest('a').data('id'), $(this).closest('li').attr('data-id'))
+  todoapi.deleteTask($(this).data('id'), $(this).closest('li').data('id'))
     .then(todoui.deleteTaskSuccess)
     .catch(todoui.deleteTaskFailure)
   $(this).closest('li').hide()
@@ -106,14 +106,18 @@ const TableDropDown = function () {
   const $this = $(this)
   if ($this.next().hasClass('show')) {
     $this.next().removeClass('show')
-    $this.next().slow()
   } else {
     $this.parent().parent().find('li .inner').removeClass('show')
     $this.next().toggleClass('show')
   }
 }
 
+const show = function () {
+  $('.dialog9').show()
+}
+
 const addHandlers = () => {
+  $('.stuff').on('click', show)
   // $('.dialog5').show()
   // $('.dialog4').show()
   $('.register-form').hide()

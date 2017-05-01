@@ -1,6 +1,5 @@
 * {
    box-sizing: border-box;
-   font-family: 'Open Sans',sans-serif;
    font-weight: 300;
 }
 a {
@@ -11,14 +10,8 @@ p {
    font-size:1.1em;
    margin-bottom: 2em;
 }
-// body {
-//    width: 40%;
-//    min-width: 300px;
-//    max-width: 400px;
-//    margin: 1.5em auto;
 
 h1 {
-   font-family: 'Pacifico',cursive;
    font-weight: 400;
    font-size: 2.5em;
 }
@@ -33,19 +26,44 @@ ul {
         display: block;
        }
    }
-   li {
+   .li-table {
+      background: #dfefff;
+      max-height: 60px;
+      width: 375px;
+      border-style: solid;
+      color: #65656b;
        margin: .5em 0;
-       a.toggle {
-           width: 100%;
+  }
+       .toggle {
+           border-style: solid;
+           max-height: 60px;
+           width: 375px;
            display: block;
-           background: rgba(0,0,0,0.78);
-           color: #fefefe;
+           background: $navd-color;
+           color: #65656b;
            padding: .75em;
            border-radius: 0.15em;
            transition: background .3s ease;
            &:hover {
-               background: rgba(0,0,0,0.9);
+               background: #86f2cc;
            }
        }
    }
+
+.add_task {
+  float: right;
+  overflow: auto;
+}
+.update {
+  float: right;
+  overflow: auto;
+}
+.delete {
+  float: right;
+  overflow: auto;
+}
+
+.delete_task {
+  float: right;
+  overflow: auto;
 }
