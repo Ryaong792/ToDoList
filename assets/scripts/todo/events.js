@@ -9,7 +9,7 @@ const todoapi = require('./todoapi.js')
 
 const createTask = function () {
   event.preventDefault()
-  todoapi.createTask($(this).closest('li').data('id'), prompt('Enter the task name', ''))
+  todoapi.createTask($(this).closest('a').data('id'), prompt('Enter the task name', ''))
   .then(todoui.createTaskSuccess)
   .catch(todoui.createTaskFailure)
 }
@@ -24,10 +24,12 @@ const getTask = function () {
 // **** DISTORY TASK ****
 const deleteTask = function () {
   event.preventDefault()
-  todoapi.deleteTask($(this).closest('li').data('id'), $(this).closest('div').data('id'))
+  console.log($(this).closest('a').data('id'))
+  console.log($(this).closest('li').data('id'))
+  todoapi.deleteTask($(this).closest('a').data('id'), $(this).closest('li').attr('data-id'))
     .then(todoui.deleteTaskSuccess)
     .catch(todoui.deleteTaskFailure)
-  $(this).closest('div').hide()
+  $(this).closest('li').hide()
 }
 
 // ********** Server communications API FOR LIST ******************
@@ -51,7 +53,8 @@ const getList = function () {
 // **** UPDATE LIST ****
 const updateList = function () {
   event.preventDefault()
-  todoapi.updateList($(this).closest('li').data('id'), prompt('Enter the new name', $(this).closest('li').data('name')))
+  console.log($(this).closest('a').data('id'))
+  todoapi.updateList($(this).closest('a').data('id'), prompt('Enter the new name', $(this).closest('a').data('name')))
     .then(todoui.updateListSuccess)
     .catch(todoui.updateListFailure)
 }
@@ -59,10 +62,10 @@ const updateList = function () {
 // **** DISTORY LIST ****
 const deleteList = function () {
   event.preventDefault()
-  todoapi.deleteList($(this).closest('li').data('id'))
+  todoapi.deleteList($(this).closest('a').data('id'))
     .then(todoui.deleteListSuccess)
     .catch(todoui.deleteListFailure)
-  $(this).closest('li').hide()
+  $(this).closest('a').hide()
 }
 
 // **** LOGIN BUTTONS / WECLOME WINDOW! ****
@@ -99,9 +102,20 @@ $('.logout').click(function (event) {
 // })
 // **** start of adding task and removing task ****
 
+const TableDropDown = function () {
+  const $this = $(this)
+  if ($this.next().hasClass('show')) {
+    $this.next().removeClass('show')
+    $this.next().slow()
+  } else {
+    $this.parent().parent().find('li .inner').removeClass('show')
+    $this.next().toggleClass('show')
+  }
+}
+
 const addHandlers = () => {
-  $('.dialog5').show()
-  $('.dialog4').show()
+  // $('.dialog5').show()
+  // $('.dialog4').show()
   $('.register-form').hide()
   $('.nav').hide()
   $('.logout').hide()
@@ -112,6 +126,7 @@ const addHandlers = () => {
     .on('click', getTask)
   $('#create-list').on('submit', createList)
   $('.list').on('click', '.delete', deleteList)
+    .on('click', '.toggle', TableDropDown)
     .on('click', '.update', updateList)
     .on('click', '.add_task', createTask)
     .on('click', '.delete_task', deleteTask)

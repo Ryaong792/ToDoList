@@ -33,25 +33,25 @@ const getTaskFailure = (error) => {
 // **** UPDATE TASK SUCCESS / FAILURE  ****
 // **** SUCCESS UPDATE TASK ****
 // div > p:eq(0) this finds the first p on the div
-const updateTaskSuccess = (data) => {
-  data = data.list
-  const item = $('.list').find('li[data-id=' + data.id + ']')
-  item.find('h2').html(' Name: ' + data.name)
-  item.find('div > p:eq(0)').html('list: ' + data.name)
-}
-// **** FAILURE UPDATE LIST ****
-const updateTaskFailure = (data) => {
-  alert('Failed to update')
-}
+// const updateTaskSuccess = (data) => {
+//   data = data.list
+//   const item = $('.list').find('li[data-id=' + data.id + ']')
+//   item.find('h2').html(' Name: ' + data.name)
+//   item.find('div > p:eq(0)').html('list: ' + data.name)
+// }
+// // **** FAILURE UPDATE LIST ****
+// const updateTaskFailure = (data) => {
+//   alert('Failed to update')
+// }
 // **** DELETE TASK SUCCESS / FAILURE  ****
 // **** SUCCESS DELETE TASK****
 // the data id is the id from handebars
 const deleteTaskSuccess = (data) => {
-  $('.list').find('div[data-id=' + data.id + ']').remove()
+  $('.list').find('li[data-id=' + data.id + ']').remove()
 }
 // **** FAILURE READ LIST ****
 const deleteTaskFailure = (data) => {
-  $('.list').find('div[data-id=' + data.id + ']').show()
+  $('.list').find('li[data-id=' + data.id + ']').show()
 }
 
 // *****************************************************************
@@ -92,9 +92,9 @@ const getListFailure = (error) => {
 // div > p:eq(0) this finds the first p on the div
 const updateListSuccess = (data) => {
   data = data.list
-  const item = $('.list').find('li[data-id=' + data.id + ']')
+  const item = $('.list').find('a[data-id=' + data.id + ']')
   item.find('h2').html(' Name: ' + data.name)
-  item.find('div > p:eq(0)').html('list: ' + data.name)
+  item.find('p').html('list: ' + data.name)
 }
 // **** FAILURE UPDATE LIST ****
 const updateListFailure = (data) => {
@@ -104,11 +104,11 @@ const updateListFailure = (data) => {
 // **** SUCCESS DELETE LIST****
 // the data id is the id from handebars
 const deleteListSuccess = (data) => {
-  $('.list').find('li[data-id=' + data.id + ']').remove()
+  $('.list').find('a[data-id=' + data.id + ']').remove()
 }
 // **** FAILURE READ LIST ****
 const deleteListFailure = (data) => {
-  $('.list').find('li[data-id=' + data.id + ']').show()
+  $('.list').find('a[data-id=' + data.id + ']').show()
 }
 
 module.exports = {
@@ -124,8 +124,8 @@ module.exports = {
   createTaskFailure,
   getTaskSuccess,
   getTaskFailure,
-  updateTaskSuccess,
-  updateTaskFailure,
+  // updateTaskSuccess,
+  // updateTaskFailure,
   deleteTaskSuccess,
   deleteTaskFailure
 }

@@ -1,4 +1,4 @@
-<ul>
+<!-- <ul>
 {{#each list}}
 
   <li data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} list-unstyled'>
@@ -21,11 +21,61 @@
 </li>
 {{/each}}
 
-</ul>
+</ul> -->
 
 
-<!--
-<ul>
+
+{{#each list}}
+    <a data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} toggle'><p>
+      {{this.name}}
+      <i class="material-icons add_task" name:"button">note_add</i>
+      <i class="material-icons update" name:"button">mode_edit</i>
+      <i class="material-icons delete" name:"button">delete</i>
+</p>
+      </a>
+<ul class="inner">
+  {{#each this.tasks}}
+      <li data-id="{{this.id}}"><p>{{this.name}}
+        <i class="material-icons delete_task" name:"button">delete</i>
+      </p>
+      </li>
+      {{/each}}
+    </ul>
+{{/each}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ul>
 {{#each list}}
 
 <li data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} list-unstyled'>
@@ -43,9 +93,10 @@
 <tbody>
   <tr>
     <td class="mdl-data-table__cell--non-numeric"><p> {{this.name}} </p></td>
-    <td><i class="material-icons delete" name:"button">note_add</i></td>
+    <!-- <td><i class="material-icons add_task" name:"button">note_add</i></td> -->
+    <!-- <td><i class="material-icons update" name:"button">mode_edit</i></td>
     <td><i class="material-icons update" name:"button">mode_edit</i></td>
-    <td><i class="material-icons add_task" name:"button">delete</i></td>
+    <td><i class="material-icons delete" name:"button">delete</i></td>
   </tr>
 </tbody>
 </table>
