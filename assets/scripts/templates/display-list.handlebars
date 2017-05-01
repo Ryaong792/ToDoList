@@ -26,18 +26,20 @@
 
 
 {{#each list}}
-    <a data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} mdl-cell mdl-cell--4-col mdl-navigation__link toggle
-    animated flip'><p>
+    <a data-id="{{this.id}}" data-name="{{this.name}}" class='list{{this.id}} mdl-cell mdl-cell--1-col mdl-navigation__link toggle
+    animated flipInY'><p>
       {{this.name}}
       <i class="material-icons delete" name="button">delete</i>
       <i class="material-icons update" name="button">mode_edit</i>
       <i class="material-icons add_task" name="button">note_add</i>
 </p>
       </a>
+
 <ul class="inner">
   {{#each this.tasks}}
       <li class="li-table" data-id="{{this.id}}"><p>{{this.name}}
         <i class="material-icons delete_task" data-id="{{this.list_id}}" name="button">delete</i>
+        <i class="material-icons update_task" name="button">mode_edit</i>
       </p>
       </li>
       {{/each}}

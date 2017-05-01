@@ -112,15 +112,24 @@ const TableDropDown = function () {
   }
 }
 
+const addList = function () {
+  $('.dialog4').show()
+}
+
 const show = function () {
   $('.dialog9').show()
 }
 
+const closeList = function () {
+  $('.dialog4').hide()
+}
+
 const addHandlers = () => {
   $('.stuff').on('click', show)
+  $('.close_list').on('click', closeList)
   // $('.dialog5').show()
-  // $('.dialog4').show()
   $('.register-form').hide()
+  $('.add_list').on('click', addList)
   $('.nav').hide()
   $('.logout').hide()
   $('.dialog1').hide()
@@ -128,7 +137,7 @@ const addHandlers = () => {
   $('.dialog3').hide()
   $('.listing').on('click', getList)
     .on('click', getTask)
-  $('#create-list').on('submit', createList)
+  $('.create').on('submit', createList)
   $('.list').on('click', '.delete', deleteList)
     .on('click', '.toggle', TableDropDown)
     .on('click', '.update', updateList)

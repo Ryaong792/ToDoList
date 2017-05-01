@@ -49,29 +49,6 @@
 
 <!-- **** Warpper and Login/registration forms **** -->
 <div class="wrapper">
-  <!-- **** ALERT MODALS **** -->
-  <!-- *** sign-in failed *** -->
-  <dialog id="dialog" class="mdl-dialog dialog1"></p>
-    <h3 class="mdl-dialog__title">ACCESS DENIED</h3></p>
-    <div class="mdl-dialog__content error_content">
-      <p>User name or Password is incorrect. <br/> Please try again to Login!</p>
-    </div>
-  </dialog>
-<!-- *** sign-up failed *** -->
-  <dialog id="dialog" class="mdl-dialog dialog2"></p>
-    <h3 class="mdl-dialog__title">REGISTRATION FAILED</h3></p>
-    <div class="mdl-dialog__content error_content">
-      <p>Username may already be in used or passwords did not match. <br/> Please try again to Login!</p>
-    </div>
-  </dialog>
-  <!-- *** sign-up success *** -->
-  <dialog id="dialog" class="mdl-dialog dialog3"></p>
-    <h3 class="mdl-dialog__title">ACCOUNT CREATED</h3></p>
-    <div class="mdl-dialog__content success_content">
-      <p>Account has been created. <br/> Please login!</p>
-    </div>
-  </dialog>
-<!-- ****************** END OF MODALS ***************** -->
   <div class="container">
 	  <h1>Welcome</h1>
     <!-- ****  Sign-in  **** -->
@@ -114,37 +91,40 @@
 <main class="mdl-layout__content">
   <div class="mdl-grid">
 
+    <!-- **** ALERT MODALS **** -->
+    <!-- *** sign-in failed *** -->
+    <dialog id="dialog" class="mdl-dialog dialog1"></p>
+      <h3 class="mdl-dialog__title">ACCESS DENIED</h3></p>
+      <div class="mdl-dialog__content error_content">
+        <p>User name or Password is incorrect. <br/> Please try again to Login!</p>
+      </div>
+    </dialog>
+    <!-- *** sign-up failed *** -->
+    <dialog id="dialog" class="mdl-dialog dialog2"></p>
+      <h3 class="mdl-dialog__title">REGISTRATION FAILED</h3></p>
+      <div class="mdl-dialog__content error_content">
+        <p>Username may already be in used or passwords did not match. <br/> Please try again to Login!</p>
+      </div>
+    </dialog>
+    <!-- *** sign-up success *** -->
+    <dialog id="dialog" class="mdl-dialog dialog3"></p>
+      <h3 class="mdl-dialog__title">ACCOUNT CREATED</h3></p>
+      <div class="mdl-dialog__content success_content">
+        <p>Account has been created. <br/> Please login!</p>
+      </div>
+    </dialog>
+    <!-- ****************** END OF MODALS ***************** -->
 
-<button class="listing">LIST </button>
 <button class="stuff">show stuff </button>
-<!-- <div class="list"></div> -->
+
 
 <!-- <div class="form-list">
   <form class="create" id="create-list">
     <input class="animated slideInRight" type="text" name="list[name]" placeholder="Name">
-    <input class="animated slideInLeft" type="boolean" name="list[completed]" placeholder="True or false">
      <input type="submit" name="submit" value="Create">
+   </form>
 </div> -->
 
-<div>
-<dialog id="dialog" class="mdl-dialog dialog4"></p>
-  <h3 class="mdl-dialog__title">Create New List</h3></p>
-  <div class="mdl-dialog__content Update_list form-list">
-    <form class="create" id="create-list">
-      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" name="list[name]" id="create-list">
-        <label class="mdl-textfield__label" for="create_list">Name...</label>
-      </div>
-      <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" name="submit">
-       Create
-      </button>
-      <button class="mdl-button mdl-js-button mdl-button--accent">
-        Cancel
-      </button>
-    </form>
-  </div>
-</dialog>
-<div>
 
 
  <!-- ************** testing the UPDATE WITH DIALOG boxes.  Having issues finding
@@ -169,8 +149,9 @@
 </dialog>
 </div>
 
-<dialog id="dialog9" class="mdl-dialog dialog9 animated flipInX"></p>
-  <h3 class="mdl-dialog__title tdialog9">ToDo List</h3></p>
+<dialog id="dialog9" class="mdl-dialog dialog9 animated flipInX" meta name="viewport" content="width=device-width"></p>
+  <h3 class="mdl-dialog__title tdialog9"><i class="material-icons show_list listing" name:"button">view_list</i>
+    ToDo List<i class="material-icons add_list" name:"button">library_add</i></h3></p>
   <div class="mdl-dialog__content todolist">
 <ul class="accordion">
   <li class="list">
@@ -179,7 +160,20 @@
  </div>
 </dialog>
 
-
+<dialog id="dialog" class="mdl-dialog dialog4"><i class="material-icons close_list" name:"button">close</i>
+  <p>
+  <h3 class="mdl-dialog__title">Create New List</h3></p>
+  <div class="mdl-dialog__content Update_list form-list">
+    <form class="create" id="create-list">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="list[name]" id="create-list">
+        <label class="mdl-textfield__label" for="create_list">Name...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary create-button" type="submit" name="submit">Create
+      </button>
+    </form>
+  </div>
+</dialog>
 
 
 

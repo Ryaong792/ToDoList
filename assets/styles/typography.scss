@@ -62,18 +62,20 @@ body {
     text-align: center;
   }
 .success_content {
-  padding: 20px 24px 24px 24px;
-  max-height: 100px;
+  // padding: 20px 24px 24px 24px;
+  // max-height: 100px;
   background: $green-color;
   color: white;
 }
 .error_content {
-    padding: 20px 24px 24px 24px;
-    max-height: 100px;
+    // padding: 20px 24px 24px 24px;
+    // max-height: 100px;
     background: $red-color;
     color: white; }
 
 .dialog4 {
+  color: $white-color;
+  background: $green-color;
   margin: 0 auto;
   overflow: auto;
 }
@@ -86,7 +88,7 @@ body {
 
 
 #dialog9 {
-  left: 50%;
+  color: #65656b;
   width: 450px;
   margin-top: 40%;
   margin: 0 auto;
@@ -98,4 +100,9 @@ body {
 
 .todolist {
   background: $white-color;
+}
+
+.Update_list {
+  background: $white-color;
+  overflow: auto;
 }

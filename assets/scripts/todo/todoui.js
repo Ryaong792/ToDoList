@@ -65,6 +65,7 @@ const deleteTaskFailure = (data) => {
 // **** SUCCESS CREATED LIST ****
 const createListSuccess = (data) => {
   store.lists = data.lists
+  $('.dialog4').hide()
 }
 // **** FAILURE CREATED LIST ****
 const createListFailure = (error) => {
