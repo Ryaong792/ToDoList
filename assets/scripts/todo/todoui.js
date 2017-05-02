@@ -3,6 +3,7 @@ const store = require('../store.js')
 const displayList = require('../templates/display-list.handlebars')
 // import displayList from '../templates/display-list.handlebars'
 const displayTask = require('../templates/display-list-tasks.handlebars')
+const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
 
 // **************** SUCCESS / FAILURE FOR TASK *********************
 // **** CREATE TASK SUCCESS / FAILURE ****
@@ -15,7 +16,6 @@ const createTaskFailure = (data) => {
 }
 
 const updateTaskSuccess = (data) => {
-  data = data.list
   const item = $('.list').find('li[data-id=' + data.id + ']')
   item.find('p').html('list: ' + data.name)
 }
@@ -119,8 +119,10 @@ const updateListFailure = (data) => {
 // **** SUCCESS DELETE LIST****
 // the data id is the id from handebars
 const deleteListSuccess = (data) => {
-  //$('.list').find('a[data-id=' + data.id + ']').remove()
-  $('.list').find('a[data-id=' + data.id + ']').addClass('animation hinge').remove()
+  // $('.list').find('a[data-id=' + data.id + ']').remove()
+  $('.list').find('a[data-id=' + data.id + ']').addClass('animation hinge').one(animationEnd, function () {
+    $(this).closest('a').hide()
+  })
 }
 // **** FAILURE READ LIST ****
 const deleteListFailure = (data) => {

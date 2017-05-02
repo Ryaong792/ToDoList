@@ -29,11 +29,11 @@ const getTask = (id) => {
 }
 
 // *** UPDATE TASK ****
-const updateTask = (listId, id) => {
+const updateTask = (listId, id, name) => {
   return $.ajax({
     url: config.apiOrigin + '/lists/' + listId + '/tasks/' + id,
     method: 'PATCH',
-    data: {list: {name: name}},
+    data: {task: {name: name}},
     headers: {
       Authorization: 'Token token=' + store.user.token
     }

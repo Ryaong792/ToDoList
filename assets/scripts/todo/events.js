@@ -26,7 +26,7 @@ const updateTask = function () {
   event.preventDefault()
   console.log('li after this')
   console.log($(this).closest('li').data('id'))
-  todoapi.updateTask(($(this).data('id'), $(this).closest('li').data('id')), prompt('Enter the new name', $(this).closest('li').data('name')))
+  todoapi.updateTask($(this).closest('li').prev().data('id'), $(this).closest('li').data('id'), prompt('Enter the new name', $(this).closest('li').data('name')))
     .then(todoui.updateTaskSuccess)
     .catch(todoui.updateTaskFailure)
 }
@@ -64,7 +64,6 @@ const getList = function () {
 // **** UPDATE LIST ****
 const updateList = function () {
   event.preventDefault()
-  $('.list').on('click', '.update').trigger('reset')
   console.log($(this).closest('a').data('id'))
   todoapi.updateList($(this).closest('a').data('id'), prompt('Enter the new name', $(this).closest('a').data('name')))
     .then(todoui.updateListSuccess)
@@ -77,7 +76,7 @@ const deleteList = function () {
   todoapi.deleteList($(this).closest('a').data('id'))
     .then(todoui.deleteListSuccess)
     .catch(todoui.deleteListFailure)
-  $(this).closest('a').hide()
+  // $(this).closest('a').hide()
 }
 
 // **** LOGIN BUTTONS / WECLOME WINDOW! ****
