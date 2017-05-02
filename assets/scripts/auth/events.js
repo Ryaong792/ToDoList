@@ -32,19 +32,27 @@ const onSignOut = function (event) {
 
 const onChangePassword = function (event) {
   event.preventDefault()
-
   const data = getFormFields(event.target)
   api.changePassword(data)
     .then(ui.changePasswordSuccess)
     .catch(ui.changePasswordFailure)
 }
 
+const changePassword = function () {
+  $('.dialog6').show()
+}
+const closecp = function () {
+  $('.dialog6').hide()
+}
+
 const addHandlers = () => {
+  $('.close_cp').on('click', closecp)
+  $('.account').on('click', changePassword)
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
-  $('.logout').on('click', onSignOut)
+  $('.euro').on('click', onSignOut)
 }
 
 module.exports = {

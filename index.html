@@ -23,26 +23,14 @@
     <header class="mdl-layout__header nav">
       <div class="mdl-layout__header-row">
         <!-- **** Title **** -->
-        <span class="mdl-layout-title">Title</span>
-
-        <!-- Add spacer, to align navigation to the right -->
-        <div class="mdl-layout-spacer"></div>
-        <!-- Navigation. We hide it in small screens. -->
-        <nav class="mdl-navigation mdl-layout--large-screen-only">
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-          <a class="mdl-navigation__link" href="">Link</a>
-        </nav>
-      </div>
+        <span class="mdl-layout-title">ToDo List</span>
     </header>
   <div class="mdl-layout__drawer">
-    <span class="mdl-layout-title">Title</span>
+    <span class="mdl-layout-title">ToDo List</span>
     <nav class="mdl-navigation">
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
-      <a class="mdl-navigation__link" href="">Link</a>
+      <a class="mdl-navigation__link account">Change Password <i class="material-icons cp">account_circle</i> </a>
+      <a class="mdl-navigation__link stuff">ToDo List <i class="material-icons vl">view_headline</i></a>
+      <a class="mdl-navigation__link euro">Logout <i class="material-icons account lo">euro_symbol</i></a>
     </nav>
   </div>
 <!-- ********** end of NAV / Header ************* -->
@@ -115,7 +103,7 @@
     </dialog>
     <!-- ****************** END OF MODALS ***************** -->
 
-<button class="stuff">show stuff </button>
+<!-- <button class="stuff">show stuff </button> -->
 
 
 <!-- <div class="form-list">
@@ -149,8 +137,9 @@
 </dialog>
 </div>
 
-<dialog id="dialog9" class="mdl-dialog dialog9 animated flipInX" meta name="viewport" content="width=device-width"></p>
-  <h3 class="mdl-dialog__title tdialog9"><i class="material-icons show_list listing" name:"button">view_list</i>
+<dialog id="dialog9" class="mdl-dialog dialog9" meta name="viewport" content="width=device-width">
+  <i class="material-icons close_list" name:"button">close</i>
+  <p><h3 class="mdl-dialog__title tdialog9"><i class="material-icons show_list listing" name:"button">view_list</i>
     ToDo List<i class="material-icons add_list" name:"button">library_add</i></h3></p>
   <div class="mdl-dialog__content todolist">
 <ul class="accordion">
@@ -160,7 +149,7 @@
  </div>
 </dialog>
 
-<dialog id="dialog" class="mdl-dialog dialog4"><i class="material-icons close_list" name:"button">close</i>
+<dialog id="dialog" class="mdl-dialog dialog4"><i class="material-icons close_cl" name:"button">close</i>
   <p>
   <h3 class="mdl-dialog__title">Create New List</h3></p>
   <div class="mdl-dialog__content Update_list form-list">
@@ -176,21 +165,40 @@
 </dialog>
 
 
-
-
-
-
-
-
-
-
+<dialog id="dialog" class="mdl-dialog dialog6"><i class="material-icons close_cp" name:"button">close</i>
+  <p>
+  <h3 class="mdl-dialog__title">Change Passsword</h3></p>
+  <div class="mdl-dialog__content Update_list form-list">
+    <form class="change-password" id="change-password">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" name="passwords[old]" id="change-password-old">
+        <label class="mdl-textfield__label" for="change-password">Old Password...</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" name="passwords[new]" id="change-password-new">
+        <label class="mdl-textfield__label" for="change-password">New Password...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary create-button" type="submit" name="submit">Change Password
+      </button>
+    </form>
+  </div>
+</dialog>
 
   </div>
 <!-- **** Colored FAB Logout button **** -->
-  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored logout float-button">
+  <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored logout float-button">
   <i class="material-icons euro ">euro_symbol</i>
   </button>
 </main>
+</div> -->
+
+
+
+
+<div class="menu-button bmenu"><i class="material-icons share">share</i>
+	<a><i class="material-icons euro">euro_symbol</i></a>
+	<a><i class="material-icons stuff">view_headline</i></a>
+  <a><i class="material-icons account">account_circle</i></a>
 </div>
 <!-- ********** END OF PAGE Mertial Design ************ -->
     <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>

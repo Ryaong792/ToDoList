@@ -119,7 +119,8 @@ const updateListFailure = (data) => {
 // **** SUCCESS DELETE LIST****
 // the data id is the id from handebars
 const deleteListSuccess = (data) => {
-  $('.list').find('a[data-id=' + data.id + ']').remove()
+  //$('.list').find('a[data-id=' + data.id + ']').remove()
+  $('.list').find('a[data-id=' + data.id + ']').addClass('animation hinge').remove()
 }
 // **** FAILURE READ LIST ****
 const deleteListFailure = (data) => {
@@ -139,8 +140,6 @@ module.exports = {
   createTaskFailure,
   getTaskSuccess,
   getTaskFailure,
-  // updateTaskSuccess,
-  // updateTaskFailure,
   deleteTaskSuccess,
   deleteTaskFailure,
   updateTaskFailure,

@@ -58,11 +58,13 @@ const getList = function () {
   todoapi.getList()
     .then(todoui.getListSuccess)
     .catch(todoui.getListFailure)
+  $('.todolist').show()
 }
 
 // **** UPDATE LIST ****
 const updateList = function () {
   event.preventDefault()
+  $('.list').on('click', '.update').trigger('reset')
   console.log($(this).closest('a').data('id'))
   todoapi.updateList($(this).closest('a').data('id'), prompt('Enter the new name', $(this).closest('a').data('name')))
     .then(todoui.updateListSuccess)
@@ -128,20 +130,33 @@ const addList = function () {
 
 const show = function () {
   $('.dialog9').show()
+  $('#dialog9').removeClass('animated rollOut')
+  $('#dialog9').addClass('animated flipInX')
 }
 
-const closeList = function () {
+const closeCl = function () {
   $('.dialog4').hide()
 }
 
+const closelist = function () {
+  $('#dialog9').removeClass('animated flipInX')
+  $('#dialog9').addClass('animated rollOut')
+  $('.todolist').hide()
+}
+
 const addHandlers = () => {
+  $('.bmenu').hide()
+  $('#dialog9').hide()
+  $('.todolist').hide()
+
   $('.stuff').on('click', show)
-  $('.close_list').on('click', closeList)
+  $('.close_cl').on('click', closeCl)
+  $('.close_list').on('click', closelist)
+
   // $('.dialog5').show()
   $('.register-form').hide()
   $('.add_list').on('click', addList)
   $('.nav').hide()
-  $('.logout').hide()
   $('.dialog1').hide()
   $('.dialog2').hide()
   $('.dialog3').hide()
