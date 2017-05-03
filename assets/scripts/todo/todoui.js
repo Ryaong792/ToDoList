@@ -10,7 +10,6 @@ const createTaskSuccess = (data) => {
   store.tasks = data.tasks
 }
 const createTaskFailure = (data) => {
-  alert('Failed to update')
 }
 
 // **** READ TASK SUCCESS / FAILURE  ****
@@ -25,9 +24,7 @@ const getTaskFailure = () => {
 // **** SUCCESS UPDATE TASK****
 const updateTaskSuccess = (data) => {
   const item = $('.list').find('li[data-id=' + data.id + ']')
-  item.find('p').html(data.name +
-    '<i class="material-icons delete_task" data-id="{{this.list_id}}" name="button">delete</i>' +
-    '<i class="material-icons update_task" name="button">mode_edit</i>')
+  item.find('p').html(data.name)
 }
 // **** FAILURE UPDATE LIST ****
 const updateTaskFailure = (data) => {
@@ -89,9 +86,13 @@ const deleteListSuccess = (data) => {
     $(this).closest('a').hide()
   })
 }
-// **** FAILURE READ LIST ****
+// **** FAILURE DELETE LIST ****
 const deleteListFailure = (data) => {
   $('.list').find('a[data-id=' + data.id + ']').show()
+  $('.dialog10').show()
+  setTimeout(function () {
+    $('.dialog10').fadeOut()
+  }, 4000)
 }
 
 module.exports = {
