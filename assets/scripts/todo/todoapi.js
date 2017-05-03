@@ -3,6 +3,8 @@
 const config = require('../config')
 const store = require('../store')
 
+// **************** API for LIST ************************
+
 // **** CREATE TASK ****
 // **** TASK CREATED IS TIED TO LIST ID ****
 const createTask = (id, name) => {
@@ -18,7 +20,6 @@ const createTask = (id, name) => {
 
 // **** READ Task ****
 const getTask = (id) => {
-  console.log('get task ran')
   return $.ajax({
     url: config.apiOrigin + '/lists/' + id + '/tasks',
     method: 'GET',
@@ -40,7 +41,7 @@ const updateTask = (listId, id, name) => {
   })
 }
 
-// **** DISTORY LIST ****
+// **** DISTORY TASK ****
 const deleteTask = (listId, id) => {
   return $.ajax({
     url: config.apiOrigin + '/lists/' + listId + '/tasks/' + id,
@@ -51,18 +52,9 @@ const deleteTask = (listId, id) => {
   })
 }
 
-// !!!!!!!!
-// !!!!!!
-// !!!!!
-// !!!!
-// !!!!!!!
-// !!!!!
-// !!!!!!!!
-
-// **************** API for LIST ************************
+// *************************** LIST API *************************
 // **** CREATE LIST ****
 const createList = (data) => {
-  console.log('created list ' + data)
   return $.ajax({
     url: config.apiOrigin + '/lists',
     method: 'POST',
@@ -75,7 +67,6 @@ const createList = (data) => {
 
 // *** READ LIST ****
 const getList = () => {
-  console.log('get list ran')
   return $.ajax({
     url: config.apiOrigin + '/lists',
     method: 'GET',
@@ -117,7 +108,5 @@ module.exports = {
   getTask,
   deleteTask,
   updateTask
-  // createGame,
-  // updateGame,
-  // getGameOver
+
 }

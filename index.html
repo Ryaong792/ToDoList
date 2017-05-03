@@ -42,8 +42,8 @@
     <!-- ****  Sign-in  **** -->
       <div class="form-group">
         <form class="form login-form" id="sign-in">
-	        <input class="animated slideInRight" type="text" name="credentials[email]" id="user-sign-in" placeholder="Username">
-		      <input class="animated slideInLeft" type="password" name="credentials[password]" id="sign-in-password" placeholder="Password">
+	        <input class="animated slideInRight" type="text" name="credentials[email]" id="user-sign-in" placeholder="Username" required>
+		      <input class="animated slideInLeft" type="password" name="credentials[password]" id="sign-in-password" placeholder="Password" required>
           <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent animated fadeInUp" type="submit" name="submit" value="Login">
             <p class="register">Not registered? <a rel="noreferrer">Create an account</a></p>
         </form>
@@ -51,9 +51,9 @@
     <!-- **** Sign-up **** -->
       <div class="form-group">
         <form class="form register-form" id="sign-up">
-          <input class="animated slideInRight" type="text" name="credentials[email]" id="user-sign-up" placeholder="Username">
-          <input class="animated slideInLeft" type="password" name="credentials[password]" id="sign-up-password" placeholder="Password">
-          <input class="animated slideInRight" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm Password">
+          <input class="animated slideInRight" type="text" name="credentials[email]" id="user-sign-up" placeholder="Username" required>
+          <input class="animated slideInLeft" type="password" name="credentials[password]" id="sign-up-password" placeholder="Password" required>
+          <input class="animated slideInRight" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm Password" required>
           <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent animated fadeInUp" type="submit" name="submit" value="Register">
             <p class="sign-in">Already registered? <a rel="noreferrer">Sign In</a></p>
         </form>
@@ -101,6 +101,7 @@
         <p>Account has been created. <br/> Please login!</p>
       </div>
     </dialog>
+
     <!-- ****************** END OF MODALS ***************** -->
 
 <!-- <button class="stuff">show stuff </button> -->
@@ -155,7 +156,7 @@
   <div class="mdl-dialog__content Update_list form-list">
     <form class="create" id="create-list">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="text" name="list[name]" id="create-list">
+        <input class="mdl-textfield__input" type="text" name="list[name]" id="create_list" required>
         <label class="mdl-textfield__label" for="create_list">Name...</label>
       </div>
       <button class="mdl-button mdl-js-button mdl-button--primary create-button" type="submit" name="submit">Create
@@ -171,11 +172,11 @@
   <div class="mdl-dialog__content Update_list form-list">
     <form class="change-password" id="change-password">
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="password" name="passwords[old]" id="change-password-old">
+        <input class="mdl-textfield__input" type="password" name="passwords[old]" id="change-password-old" required>
         <label class="mdl-textfield__label" for="change-password">Old Password...</label>
       </div>
       <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-        <input class="mdl-textfield__input" type="password" name="passwords[new]" id="change-password-new">
+        <input class="mdl-textfield__input" type="password" name="passwords[new]" id="change-password-new" required>
         <label class="mdl-textfield__label" for="change-password">New Password...</label>
       </div>
       <button class="mdl-button mdl-js-button mdl-button--primary create-button" type="submit" name="submit">Change Password
@@ -184,16 +185,24 @@
   </div>
 </dialog>
 
+
+
+
+<!-- *** change password failed ***  -->
+<dialog id="dialog" class="mdl-dialog dialog7"></p>
+  <h3 class="mdl-dialog__title">Change Password Failed</h3></p>
+  <div class="mdl-dialog__content error_content">
+    <p>Your old password did not match. <br/> Please try again!</p>
   </div>
-<!-- **** Colored FAB Logout button **** -->
-  <!-- <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored logout float-button">
-  <i class="material-icons euro ">euro_symbol</i>
-  </button>
-</main>
-</div> -->
-
-
-
+</dialog>
+<!-- *** change password Success***  -->
+<dialog id="dialog" class="mdl-dialog dialog8"></p>
+  <h3 class="mdl-dialog__title">Password Successfully Change</h3></p>
+  <div class="mdl-dialog__content success_content">
+    <p>Account password has been change!</p>
+  </div>
+</dialog>
+  </div>
 
 <div class="menu-button bmenu"><i class="material-icons share">share</i>
 	<a><i class="material-icons euro">euro_symbol</i></a>

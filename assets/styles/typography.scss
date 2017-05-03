@@ -74,6 +74,21 @@ body {
   overflow: auto;
 }
 
+.dialog7 {
+  color: $red-color;
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  margin: 0 auto;
+}
+
+.dialog8 {
+  color: $green-color;
+  border: none;
+  box-shadow: 0 9px 46px 8px rgba(0, 0, 0, 0.14), 0 11px 15px -7px rgba(0, 0, 0, 0.12), 0 24px 38px 3px rgba(0, 0, 0, 0.2);
+  width: 280px;
+  margin: 0 auto;
+}
 
 }
 .mdl-dialog__title {
@@ -96,8 +111,8 @@ body {
     color: white; }
 
 .dialog4 {
-  color: $white-color;
   background: $green-color;
+  color: $white-color;
   margin: 0 auto;
   overflow: auto;
 }
@@ -139,4 +154,8 @@ body {
 .close_cp {
   float: right;
   overflow: auto;
+}
+
+i.material-icons {
+    cursor: pointer;
 }

@@ -43,6 +43,7 @@ const changePassword = function () {
 }
 const closecp = function () {
   $('.dialog6').hide()
+  $('#change-password')[0].reset()
 }
 
 const addHandlers = () => {

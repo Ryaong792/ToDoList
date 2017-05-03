@@ -5,15 +5,17 @@ const todoapi = require('./todoapi.js')
 // will use later this const is used to wait for complete animation
 // const animationEnd = 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend'
 
-// pulls total game played by user (GET)
-
+// ********** Server communications API FOR TASK ******************
+// **** Create Task ****
 const createTask = function () {
   event.preventDefault()
   todoapi.createTask($(this).closest('a').data('id'), prompt('Enter the task name', ''))
   .then(todoui.createTaskSuccess)
   .catch(todoui.createTaskFailure)
+  .done(getList)
 }
 
+// **** Get TASK ****
 const getTask = function () {
   event.preventDefault()
   todoapi.getTask()
@@ -24,22 +26,18 @@ const getTask = function () {
 // **** UPDATE TASK ****
 const updateTask = function () {
   event.preventDefault()
-  console.log('li after this')
-  console.log($(this).closest('li').data('id'))
   todoapi.updateTask($(this).closest('li').prev().data('id'), $(this).closest('li').data('id'), prompt('Enter the new name', $(this).closest('li').data('name')))
     .then(todoui.updateTaskSuccess)
     .catch(todoui.updateTaskFailure)
+    .done(getList)
 }
 
 // **** DISTORY TASK ****
 const deleteTask = function () {
   event.preventDefault()
-  console.log($(this))
-  console.log($(this).closest('li').data('id'))
   todoapi.deleteTask($(this).data('id'), $(this).closest('li').data('id'))
     .then(todoui.deleteTaskSuccess)
     .catch(todoui.deleteTaskFailure)
-  $(this).closest('li').hide()
 }
 
 // ********** Server communications API FOR LIST ******************
@@ -50,11 +48,12 @@ const createList = function () {
   todoapi.createList(data)
   .then(todoui.createListSuccess)
   .catch(todoui.createListFailure)
+  .done(getList)
 }
 
 // **** GET LIST ****
 const getList = function () {
-  event.preventDefault()
+  // event.preventDefault()
   todoapi.getList()
     .then(todoui.getListSuccess)
     .catch(todoui.getListFailure)
@@ -64,10 +63,10 @@ const getList = function () {
 // **** UPDATE LIST ****
 const updateList = function () {
   event.preventDefault()
-  console.log($(this).closest('a').data('id'))
   todoapi.updateList($(this).closest('a').data('id'), prompt('Enter the new name', $(this).closest('a').data('name')))
     .then(todoui.updateListSuccess)
     .catch(todoui.updateListFailure)
+    .done(getList)
 }
 
 // **** DISTORY LIST ****
@@ -76,7 +75,6 @@ const deleteList = function () {
   todoapi.deleteList($(this).closest('a').data('id'))
     .then(todoui.deleteListSuccess)
     .catch(todoui.deleteListFailure)
-  // $(this).closest('a').hide()
 }
 
 // **** LOGIN BUTTONS / WECLOME WINDOW! ****
@@ -112,7 +110,7 @@ $('.logout').click(function (event) {
 //   $(this).parents('tr').remove()
 // })
 // **** start of adding task and removing task ****
-
+// ************** OTHER JS FUCNTIONS ******************
 const TableDropDown = function () {
   const $this = $(this)
   if ($this.next().hasClass('show')) {
@@ -135,6 +133,7 @@ const show = function () {
 
 const closeCl = function () {
   $('.dialog4').hide()
+  $('.create').trigger('reset')
 }
 
 const closelist = function () {
@@ -147,12 +146,9 @@ const addHandlers = () => {
   $('.bmenu').hide()
   $('#dialog9').hide()
   $('.todolist').hide()
-
   $('.stuff').on('click', show)
   $('.close_cl').on('click', closeCl)
   $('.close_list').on('click', closelist)
-
-  // $('.dialog5').show()
   $('.register-form').hide()
   $('.add_list').on('click', addList)
   $('.nav').hide()
@@ -171,5 +167,7 @@ const addHandlers = () => {
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  getList,
+  getTask
 }
