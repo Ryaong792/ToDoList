@@ -9,7 +9,7 @@ const signUpSuccess = (data) => {
   setTimeout(function () {
     $('.dialog3').fadeOut()
   }, 4000)
-  $('form').fadeOut(500)
+  //$('form').fadeOut(500)
   $('.login-form').show()
   $('#sign-up').trigger('reset')
 }
