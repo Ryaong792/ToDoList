@@ -95,7 +95,7 @@ $('.register').click(function () {
 // ***sign-in link***
 $('.sign-in').click(function (event) {
   event.preventDefault()
-  $('form').fadeOut(500)
+  // $('form').fadeOut(500)
   $('.login-form').show()
 })
 // ***Logout button***
