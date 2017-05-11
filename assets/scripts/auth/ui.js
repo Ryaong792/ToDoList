@@ -50,13 +50,16 @@ const signOutSuccess = () => {
   store.user = null
   $('.form-group').fadeIn(500)
   $('.nav').hide()
+  $('.dialog6').hide()
+  $('#change-password')[0].reset()
+  $('.dialog4').hide()
+  $('.create').trigger('reset')
   $('.bmenu').removeClass('animated fadeInDown')
   $('.bmenu').addClass('animated fadeOutUp')
   $('.wrapper').fadeIn(700)
   $('.wrapper').removeClass('form-success animated rotateOut')
   $('#dialog9').removeClass('animated flipInX')
-  $('#dialog9').addClass('animated rollOut')
-  $('.todolist').hide()
+  $('#dialog9').addClass('animated rollOut').done($('.todolist').hide())
 }
 
 const signOutFailure = () => {
