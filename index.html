@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>ToDo List</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags unless you know what you are doing -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
+      <!-- Do not add `script` tags unless you know what you are doing -->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+<!-- ******************* START OF BODY ******************* -->
+<body class="container-fluid">
+
+<!-- ****** Always shows a header, even in smaller screens ****** -->
+  <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header nav">
+      <div class="mdl-layout__header-row">
+        <!-- **** Title **** -->
+        <span class="mdl-layout-title">ToDo List</span>
+    </header>
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">ToDo List</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link account">Change Password <i class="material-icons cp">account_circle</i> </a>
+      <a class="mdl-navigation__link stuff">ToDo List <i class="material-icons vl">view_headline</i></a>
+      <a class="mdl-navigation__link euro">Logout <i class="material-icons account lo">euro_symbol</i></a>
+    </nav>
+  </div>
+<!-- ********** end of NAV / Header ************* -->
+
+<!-- **** Warpper and Login/registration forms **** -->
+<div class="wrapper">
+  <div class="container">
+	  <h1>Welcome</h1>
+    <!-- ****  Sign-in  **** -->
+      <div class="form-group">
+        <form class="form login-form" id="sign-in">
+	        <input class="animated slideInRight" type="text" name="credentials[email]" id="user-sign-in" placeholder="Username" required>
+		      <input class="animated slideInLeft" type="password" name="credentials[password]" id="sign-in-password" placeholder="Password" required>
+          <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent animated fadeInUp" type="submit" name="submit" value="Login">
+            <p class="register">Not registered? <a rel="noreferrer">Create an account</a></p>
+        </form>
+      </div>
+    <!-- **** Sign-up **** -->
+      <div class="form-group">
+        <form class="form register-form" id="sign-up">
+          <input class="animated slideInRight" type="text" name="credentials[email]" id="user-sign-up" placeholder="Username" required>
+          <input class="animated slideInLeft" type="password" name="credentials[password]" id="sign-up-password" placeholder="Password" required>
+          <input class="animated slideInRight" type="password" name="credentials[password_confirmation]" id="sign-up-password-confirmation" placeholder="Confirm Password" required>
+          <input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent animated fadeInUp" type="submit" name="submit" value="Register">
+            <p class="sign-in">Already registered? <a rel="noreferrer">Sign In</a></p>
+        </form>
+      </div>
+   </div>
+<!-- Bubbles for wrapper -->
+   <ul class="animated infinite pulse bg-bubbles">
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+		<li></li>
+	 </ul>
+</div>
+<!-- *************** end of login *************** -->
+
+<!-- *************** MAIN BODY OF THE PAGE **************** -->
+<main class="mdl-layout__content">
+  <div class="mdl-grid">
+
+    <!-- **** ALERT MODALS **** -->
+    <!-- *** sign-in failed *** -->
+    <dialog id="dialog" class="mdl-dialog dialog1"></p>
+      <h3 class="mdl-dialog__title">ACCESS DENIED</h3></p>
+      <div class="mdl-dialog__content error_content">
+        <p>User name or Password is incorrect. <br/> Please try again to Login!</p>
+      </div>
+    </dialog>
+    <!-- *** sign-up failed *** -->
+    <dialog id="dialog" class="mdl-dialog dialog2"></p>
+      <h3 class="mdl-dialog__title">REGISTRATION FAILED</h3></p>
+      <div class="mdl-dialog__content error_content">
+        <p>Username may already be in used or passwords did not match. <br/> Please try again to Login!</p>
+      </div>
+    </dialog>
+    <!-- *** sign-up success *** -->
+    <dialog id="dialog" class="mdl-dialog dialog3"></p>
+      <h3 class="mdl-dialog__title">ACCOUNT CREATED</h3></p>
+      <div class="mdl-dialog__content success_content">
+        <p>Account has been created. <br/> Please login!</p>
+      </div>
+    </dialog>
+
+    <!-- ****************** END OF MODALS ***************** -->
+
+<div>
+<dialog id="dialog" class="mdl-dialog dialog5"></p>
+  <h3 class="mdl-dialog__title">Update TASK Name</h3></p>
+  <div class="mdl-dialog__content update_list_name form-list">
+    <form class="create" id="create-list">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="task[name]" id="update-list">
+        <label class="mdl-textfield__label" for="create_list">Name...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary" type="submit" name="submit">
+       Create
+      </button>
+      <button class="mdl-button mdl-js-button mdl-button--accent">
+        Cancel
+      </button>
+    </form>
+  </div>
+</dialog>
+</div>
+
+<dialog id="dialog9" class="mdl-dialog dialog9" meta name="viewport" content="width=device-width">
+  <i class="material-icons close_list" name:"button">close</i>
+  <p><h3 class="mdl-dialog__title tdialog9"><i class="material-icons show_list listing" name:"button">view_list</i>
+    ToDo List<i class="material-icons add_list" name:"button">library_add</i></h3></p>
+  <div class="mdl-dialog__content todolist">
+<ul class="accordion">
+  <li class="list">
+  </li>
+</ul>
+ </div>
+</dialog>
+
+<dialog id="dialog" class="mdl-dialog dialog4"><i class="material-icons close_cl" name:"button">close</i>
+  <p>
+  <h3 class="mdl-dialog__title">Create New List</h3></p>
+  <div class="mdl-dialog__content Update_list form-list">
+    <form class="create" id="create-list">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="text" name="list[name]" id="create_list" required>
+        <label class="mdl-textfield__label" for="create_list">Name...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary create-button" type="submit" name="submit">Create
+      </button>
+    </form>
+  </div>
+</dialog>
+
+
+<dialog id="dialog" class="mdl-dialog dialog6"><i class="material-icons close_cp" name:"button">close</i>
+  <p>
+  <h3 class="mdl-dialog__title">Change Passsword</h3></p>
+  <div class="mdl-dialog__content Update_list form-list">
+    <form class="change-password" id="change-password">
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" name="passwords[old]" id="change-password-old" required>
+        <label class="mdl-textfield__label" for="change-password">Old Password...</label>
+      </div>
+      <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+        <input class="mdl-textfield__input" type="password" name="passwords[new]" id="change-password-new" required>
+        <label class="mdl-textfield__label" for="change-password">New Password...</label>
+      </div>
+      <button class="mdl-button mdl-js-button mdl-button--primary create-button" type="submit" name="submit">Change Password
+      </button>
+    </form>
+  </div>
+</dialog>
+
+
+<!-- *** change password failed ***  -->
+<dialog id="dialog" class="mdl-dialog dialog10"></p>
+  <h3 class="mdl-dialog__title">Delete of List Failed</h3></p>
+  <div class="mdl-dialog__content error_content">
+    <p>You have some task that are in your list.  Delete your task before you can
+      proceed <br/> Get shit done!</p>
+  </div>
+</dialog>
+
+<!-- *** change password failed ***  -->
+<dialog id="dialog" class="mdl-dialog dialog7"></p>
+  <h3 class="mdl-dialog__title">Change Password Failed</h3></p>
+  <div class="mdl-dialog__content error_content">
+    <p>Your old password did not match. <br/> Please try again!</p>
+  </div>
+</dialog>
+<!-- *** change password Success***  -->
+<dialog id="dialog" class="mdl-dialog dialog8"></p>
+  <h3 class="mdl-dialog__title">Password Successfully Change</h3></p>
+  <div class="mdl-dialog__content success_content">
+    <p>Account password has been change!</p>
+  </div>
+</dialog>
+  </div>
+
+<div class="menu-button bmenu"><i class="material-icons share">share</i>
+	<a><i class="material-icons euro">euro_symbol</i></a>
+	<a><i class="material-icons stuff">view_headline</i></a>
+  <a><i class="material-icons account">account_circle</i></a>
+</div>
+<!-- ********** END OF PAGE Mertial Design ************ -->
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  </body>
+</html>
